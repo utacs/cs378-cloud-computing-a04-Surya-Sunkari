@@ -25,28 +25,45 @@
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>edu.cs.utexas.HadoopEx.GPSErrorDetection</mainClass>
-						</manifest>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-				</configuration>
+                    <execution>
+                        <id>GPSErrorDetectionDriver-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>edu.cs.utexas.HadoopEx.GPSErrorDetectionDriver</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>GPSErrorDetectionDriver</finalName>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>TaxiAndErrorDriver-jar</id> 
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>edu.cs.utexas.HadoopEx.TaxiAndErrorDriver</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>TaxiAndErrorDriver</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
 			</plugin>
-			
-			
-			
-			
 
 		</plugins>
 	</build>

@@ -47,11 +47,11 @@ Specify your own Output directory like
 mvn clean package
 
 **TASK 1:**<br>
-java -jar target/MapReduce-WordCount-example-0.1-SNAPSHOT-jar-with-dependencies.jar taxi-data-sorted-small.csv output_task1
+java -jar target/GPSErrorDetectionDriver-jar-with-dependencies.jar taxi-data-sorted-small.csv output/task1
 <br>
 <br>
 **TASK 2:**<br>
-todo:
+java -jar target/TaxiAndErrorDriver-jar-with-dependencies.jar taxi-data-sorted-small.csv intermediate/task2 output/task2
 <br>
 <br>
 **TASK 3:**<br>
