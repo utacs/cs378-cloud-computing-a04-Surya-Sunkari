@@ -44,6 +44,20 @@ Specify your own Output directory like
 
 # Running:
 
+mvn clean package
+
+**TASK 1:**<br>
+java -jar target/MapReduce-WordCount-example-0.1-SNAPSHOT-jar-with-dependencies.jar taxi-data-sorted-small.csv output_task1
+<br>
+<br>
+**TASK 2:**<br>
+todo:
+<br>
+<br>
+**TASK 3:**<br>
+todo:
+
+
 
 
 
