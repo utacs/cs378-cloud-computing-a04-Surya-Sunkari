@@ -55,7 +55,7 @@ java -jar target/TaxiAndErrorDriver-jar-with-dependencies.jar taxi-data-sorted-s
 <br>
 <br>
 **TASK 3:**<br>
-todo:
+java -jar target/DriverEarningsDriver-jar-with-dependencies.jar taxi-data-sorted-small.csv intermediate/task3 output/task3
 
 
 
