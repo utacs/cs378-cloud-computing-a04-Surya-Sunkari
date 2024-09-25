@@ -17,7 +17,9 @@ public class TaxiAndErrorMapper extends Mapper<Object, Text, Text, IntPairWritab
 
         if (Utils.validLine(fields)) {
             try {
-                boolean gpsError = Utils.isGPSError(fields);
+                boolean[] gpsErrors = Utils.countGPSErrors(fields);
+                boolean isGPSError = gpsErrors[0] || gpsErrors[1];
+
                 String taxiId = fields[0];
 
                 // int writable in the form [count (always 1), error (1 if gps error, 0 otherwise)]
@@ -25,7 +27,7 @@ public class TaxiAndErrorMapper extends Mapper<Object, Text, Text, IntPairWritab
                     new Text(taxiId),
                     new IntPairWritable(
                         one.get(), 
-                        gpsError ? error.get() : noError.get()
+                        isGPSError ? error.get() : noError.get()
                     )
                 );
                 

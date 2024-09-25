@@ -20,7 +20,7 @@ public class Utils {
             return false;
         }
 
-        // validate 11-16 are floats and sums to total
+        // validate 11-16 are floats, they sum to total, and total <= 500
         try {
             float cur_sum = 0;
             float total = Float.parseFloat(fields[16].trim());
@@ -28,7 +28,7 @@ public class Utils {
                 cur_sum += Float.parseFloat(fields[i].trim());
             }
 
-            if (Math.abs(cur_sum - total) > 0.001) {
+            if (Math.abs(cur_sum - total) > 0.001 || total > 500) {
                 return false;
             }
         } catch (Exception e) {
@@ -41,19 +41,27 @@ public class Utils {
 
     /*
      * check if gps position is error
+     * errors[0] will be true if pick-up gps position is error
+     * errors[1] will be true if drop-off gps position is error
      */
-    public static boolean isGPSError(String[] fields) {
-        for (int i = 6; i < 10; i++) {
-            // empty
-            if (fields[i].length() == 0) {
-                return true;
-            }
+    public static boolean[] countGPSErrors(String[] fields) {
+        boolean[] errors = new boolean[2];
 
-            // zero
-            if (Float.parseFloat(fields[i]) == 0) {
-                return true;
+        // check for errors in pick-up (fields[6] and fields[7]) and drop-off (fields[8] and fields[9])
+        for (int i = 6; i <= 7; i++) {
+            if (fields[i].length() == 0 || Float.parseFloat(fields[i]) == 0) {
+                errors[0] = true;
+                break;  
             }
         }
-        return false;
+
+        for (int i = 8; i <= 9; i++) {
+            if (fields[i].length() == 0 || Float.parseFloat(fields[i]) == 0) {
+                errors[1] = true;
+                break; 
+            }
+        }
+
+        return errors;
     }
 }

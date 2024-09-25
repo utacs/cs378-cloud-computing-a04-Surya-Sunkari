@@ -19,9 +19,7 @@ public class TopFiveErrorMapper extends Mapper<Text, Text, Text, IntPairWritable
     public void map(Text key, Text value, Context context) throws IOException, InterruptedException {
         
         String[] tokens = value.toString().split(" ");
-        
-        System.out.println("current top 5: " + pq.toString());
-    
+            
         try {
             int totalRecords = Integer.parseInt(tokens[0]);
             int gpsErrors = Integer.parseInt(tokens[1]);
@@ -43,7 +41,6 @@ public class TopFiveErrorMapper extends Mapper<Text, Text, Text, IntPairWritable
     protected void cleanup(Context context) throws IOException, InterruptedException {
         while (!pq.isEmpty()) {
             TaxiAndErrorCount taxiAndError = pq.poll();
-            System.out.println("local top 5: " + taxiAndError.getTaxiId().toString() + " " + taxiAndError.getErrorFraction());
             context.write(new Text(taxiAndError.getTaxiId()), new IntPairWritable(taxiAndError.getTotalRecords(), taxiAndError.getGPSErrors()));
         }
     }

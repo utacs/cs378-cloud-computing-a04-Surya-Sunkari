@@ -22,12 +22,20 @@ public class GPSErrorDetectionMapper extends Mapper<Object, Text, IntWritable, I
         if (Utils.validLine(fields)) {
             try {
                 // write if error gps position
-                if(Utils.isGPSError(fields)) {
-                    String pickupDateTime = fields[3];
+                boolean[] gpsErrors = Utils.countGPSErrors(fields);
+                if(gpsErrors[0]) {
+                    String pickupDateTime = fields[2];
                     String[] pickupDateTimeSplit = pickupDateTime.split(" ");
                     String[] pickupTimeSplit = pickupDateTimeSplit[1].split(":");
-                    int hour = Integer.parseInt(pickupTimeSplit[0]);
-
+                    int hour = Integer.parseInt(pickupTimeSplit[0]) + 1; // one index
+                    hourWritable.set(hour);
+                    context.write(hourWritable, one);
+                }
+                if(gpsErrors[1]) {
+                    String dropoffDateTime = fields[3];
+                    String[] dropoffDateTimeSplit = dropoffDateTime.split(" ");
+                    String[] dropoffTimeSplit = dropoffDateTimeSplit[1].split(":");
+                    int hour = Integer.parseInt(dropoffTimeSplit[0]) + 1;
                     hourWritable.set(hour);
                     context.write(hourWritable, one);
                 }
