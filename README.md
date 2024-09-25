@@ -57,7 +57,32 @@ java -jar target/TaxiAndErrorDriver-jar-with-dependencies.jar taxi-data-sorted-s
 **TASK 3:**<br>
 java -jar target/DriverEarningsDriver-jar-with-dependencies.jar taxi-data-sorted-small.csv intermediate/task3 output/task3
 
+# Relevant files per Task:
+**Task 1:**
+GPSErrorDetectionDriver
+GPSErrorDetectionMapper
+GPSErrorDetectionReducer
+Utils
 
+**Task 2:**
+TaxiAndErrorCount
+TaxiAndErrorDriver
+TaxiAndErrorMapper
+TaxiAndErrorReducer
+TopFiveErrorMapper
+TopFiveErrorReducer
+IntPairWritable
+Utils
+
+**Task 3:**
+DriverEarnings
+DriverEarningsDriver
+EarningsPerMinuteMapper
+EarningsPerMinuteReducer
+TopTenDriversMapper
+TopTenDriversReducer
+IntDoublePairWritable
+Utils
 
 
 
