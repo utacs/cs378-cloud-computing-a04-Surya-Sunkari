@@ -1,29 +1,53 @@
-# Please add your team members' names here. 
+# Team
 
 ## Team members' names 
 
-1. Student Name:
+1. Student Name: Surya Sunkari
 
-   Student UT EID:
+   Student UT EID: svs879
 
-2. Student Name:
+2. Student Name: Shaan Kumar
 
-   Student UT EID:
+   Student UT EID: sk55838
 
- ...
+3. Student Name: Jordyn Nevelle
+
+   Student UT EID: jrn2365
+
 
 ##  Course Name: CS378 - Cloud Computing 
 
 ##  Unique Number: 51515
     
 
+# Project Report
 
-# Add your Project REPORT HERE 
+## Google Cloud Machines
+
+**Dataproc Cluster:**<br>
+![dataproc dashboard screenshot](readme_screenshots/dataproc_dashboard.png)
+
+**VM Instances:**<br>
+![vm instances screenshot](readme_screenshots/vm_dashboard.png)
+
+## Yarn History
+
+**Task 1:**<br>
+![task 1 yarn ui history](readme_screenshots/yarn_task_1.png)
+
+**Task 2:**<br>
+![task 2 part 1 yarn ui history](readme_screenshots/yarn_task_2_pt1.png)
+![task 2 part 2 yarn ui history](readme_screenshots/yarn_task_2.png)
+
+**Task 3:**<br>
+![task 3 part 1 yarn ui history](readme_screenshots/yarn_task_3_pt1.png)
+![task 3 part 2 yarn ui history](readme_screenshots/yarn_task_3.png)
+
 
 
 # Project Template
 
-# Running on Laptop     ####
+# Running on Laptop 
 
 Prerequisite:
 
